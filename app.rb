@@ -1,6 +1,7 @@
 # Require the bundler gem and then call Bundler.require to load in all gems
 # listed in Gemfile.
 require 'bundler'
+require 'pry'
 Bundler.require
 
 # Setup DataMapper with a database URL. On Heroku, ENV['DATABASE_URL'] will be
@@ -43,11 +44,12 @@ post '/things' do
   # These next commented lines are for if you are using Backbone.js
   # JSON is sent in the body of the http request. We need to parse the body
   # from a string into JSON
-  # params_json = JSON.parse(request.body.read)
+  params_json = JSON.parse(request.body.read)
 
   # If you are using jQuery's ajax functions, the data goes through in the
   # params.
-  @thing = Thing.new(params)
+  @thing = Thing.new(params_json)
+  
 
   if @thing.save
     @thing.to_json

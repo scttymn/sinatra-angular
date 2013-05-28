@@ -1,58 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app>
 <head>
+  <meta charset="utf-8">
   <title>Sinatra JSON API Example</title>
-  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      // Load THINGS data immediately
-      $.ajax({
-        url: '/things',
-        method: 'GET'
-      }).done(function (data) {
-        data.forEach(function (d) {
-          $('#things-index').append("<p><strong>" + d.title + "</strong>: " + d.description + "</p>");
-        });
-      });
-
-      // Form to create a new Thing
-      $('#new-submit').click(function () {
-        var data = {};
-
-        // Get the data from the form elements
-        data.title = $('#new-title').val();
-        data.description = $('#new-description').val();
-
-        $.ajax({
-          url: '/things',
-          method: 'POST',
-          data: JSON.stringify(data)
-        }).done(function (response) {
-          console.log(response);
-        });
-
-        // Prevent the form from being submitted.
-        return false;
-      });
-    });
-  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+  <script src="/controllers.js"></script>
 </head>
-<body>
-  <div id="things-index">
-    <h2>All Things</h2>
-  </div>
-
+<body ng-controller='ThingController'>
 
   <h2>New Thing</h2>
   <form id="new-thing">
     <p><strong>Title:</strong></p>
-    <input id="new-title" name="title" type="text">
+    <input ng-model="thing.title" type="text">
 
     <p><strong>Description:</strong></p>
-    <textarea id="new-description" name="description"></textarea>
+    <textarea ng-model="thing.description"></textarea>
 
-    <p><input id="new-submit" type="submit"></p>
+    <p><input ng-click="create(thing)" type="submit"></p>
   </form>
+  
+  <h2>All The Things!</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat='thing in things'>
+        <td>{{thing.title}}</td>
+        <td>{{thing.description}}</td>
+        <td><a href="#" ng-click="delete(thing)">delete</a></td>
+      </tr>
+    </tbody>
+  </table>
 
 </body>
 </html>
