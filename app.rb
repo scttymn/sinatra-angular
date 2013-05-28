@@ -1,7 +1,6 @@
 # Require the bundler gem and then call Bundler.require to load in all gems
 # listed in Gemfile.
 require 'bundler'
-require 'pry'
 Bundler.require
 
 # Setup DataMapper with a database URL. On Heroku, ENV['DATABASE_URL'] will be
