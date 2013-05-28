@@ -1,7 +1,12 @@
 # Require the bundler gem and then call Bundler.require to load in all gems
 # listed in Gemfile.
 require 'bundler'
+require 'sinatra/cross_origin'
 Bundler.require
+
+configure do
+  enable :cross_origin
+end
 
 # Setup DataMapper with a database URL. On Heroku, ENV['DATABASE_URL'] will be
 # set, when working locally this line will fall back to using SQLite in the
