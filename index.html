@@ -69,7 +69,7 @@
               <tr ng-repeat='thing in things'>
                 <td>{{thing.title}}</td>
                 <td>{{thing.description}}</td>
-                <td><a href="#" onclick="return false;" ng-click="delete(thing)">delete</a></td>
+                <td><a href="#" onclick="return false;" ng-click="delete($index)">delete</a></td>
               </tr>
             </tbody>
           </table>

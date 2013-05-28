@@ -12,9 +12,11 @@ function ThingController($scope, $http) {
     });
   }
   
-  $scope.delete = function(thing) {
-    $http.delete(baseUrl + '/things/' + thing.id + '/delete').success(function(thing){
-      $scope.things.splice(thing,1);
+  $scope.delete = function(idx) {
+    var thing = $scope.things[idx];
+
+    $http.delete(baseUrl + '/things/' + thing.id + '/delete').success(function(success){
+      $scope.things.splice(idx,1);
     });
   }
   
