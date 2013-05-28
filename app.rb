@@ -4,9 +4,8 @@ require 'bundler'
 require 'sinatra/cross_origin'
 Bundler.require
 
-configure do
-  enable :cross_origin
-end
+set :allow_origin, :any
+set :allow_methods, [:post, :get, :put, :delete, :options]
 
 # Setup DataMapper with a database URL. On Heroku, ENV['DATABASE_URL'] will be
 # set, when working locally this line will fall back to using SQLite in the
