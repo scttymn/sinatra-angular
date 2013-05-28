@@ -2,3 +2,4 @@
 {"contributors":[],"silentsave":false,"ts":1369697233492,"patch":[[{"diffs":[[0,"te-adapter'\n"],[1,"  gem 'pry'\n  gem 'pry-debugger'\n"],[0,"end\n\n# Herok"]],"start1":283,"start2":283,"length1":24,"length2":57}]],"length":493,"saved":false}
 {"contributors":[],"silentsave":false,"ts":1369757485240,"patch":[[{"diffs":[[0,":development do\n"],[1,"  gem 'pg'\n"],[0,"  gem 'dm-postgr"]],"start1":445,"start2":445,"length1":32,"length2":43}]],"length":504,"saved":false}
 {"ts":1369758227844,"patch":[[{"diffs":[[0,"ite.\ngroup :"],[-1,"development"],[1,"production"],[0," do\n  gem 'p"]],"start1":434,"start2":434,"length1":35,"length2":34}]],"length":503,"saved":false}
+{"contributors":[],"silentsave":false,"ts":1369770778720,"patch":[[{"diffs":[[0,"_mapper'"],[1,"\ngem 'rack-cors', :require => 'rack/cors'"],[0,"\n\n# When"]],"start1":65,"start2":65,"length1":16,"length2":57}]],"length":544,"saved":false}

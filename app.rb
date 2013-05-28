@@ -1,11 +1,16 @@
 # Require the bundler gem and then call Bundler.require to load in all gems
 # listed in Gemfile.
 require 'bundler'
-require 'sinatra/cross_origin'
 Bundler.require
 
-set :allow_origin, :any
-set :allow_methods, [:post, :get, :put, :delete, :options]
+use Rack::Cors do
+  allow do
+    origins '*'
+    resource '*', 
+      :headers => :any, 
+      :methods => [:get, :post, :put, :delete, :options]
+  end
+end
 
 # Setup DataMapper with a database URL. On Heroku, ENV['DATABASE_URL'] will be
 # set, when working locally this line will fall back to using SQLite in the
@@ -43,6 +48,7 @@ end
 # CREATE: Route to create a new Thing
 post '/things' do
   content_type :json
+  headers "Access-Control-Allow-Headers" => "Content-Type"
 
   # These next commented lines are for if you are using Backbone.js
   # JSON is sent in the body of the http request. We need to parse the body
