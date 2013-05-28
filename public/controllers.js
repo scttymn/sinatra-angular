@@ -1,5 +1,5 @@
 function ThingController($scope, $http) {
-  var baseUrl = 'http://sinatra-api-example.scottymoon.c9.io';
+  var baseUrl = 'http://sinatra-api.herokuapp.com';
   
   $http.get(baseUrl + '/things').success(function(data) {
     $scope.things = data;
