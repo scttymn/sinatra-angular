@@ -69,6 +69,7 @@ GEM
     json_pure (1.7.7)
     method_source (0.8.1)
     multi_json (1.6.1)
+    pg (0.14.1)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -96,6 +97,7 @@ DEPENDENCIES
   dm-postgres-adapter
   dm-sqlite-adapter
   json
+  pg
   pry
   pry-debugger
   sinatra
