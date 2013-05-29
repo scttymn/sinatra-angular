@@ -12,8 +12,8 @@ function ThingController($scope, $http) {
     });
   }
   
-  $scope.delete = function(idx) {
-    var thing = $scope.things[idx];
+  $scope.delete = function(thing) {
+    var idx = $scope.things.indexOf(thing);
 
     $http.delete(baseUrl + '/things/' + thing.id + '/delete').success(function(success){
       $scope.things.splice(idx,1);
